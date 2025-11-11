@@ -41,7 +41,7 @@ public class VariousQueriesAndScanner {
 				System.out.println("Patient Date of Birth: " + result.getString("date_of_birth"));
 			}
 		} catch (Exception e) {
-			System.out.println(e);
+			throw new RuntimeException();
 		}
 	}
 	
@@ -131,7 +131,7 @@ public class VariousQueriesAndScanner {
 			System.out.println(e);
 		}
 	}
-	
+
 	public static void addCustomPatient() {
 		Scanner getInput = new Scanner(System.in);
 		System.out.println("Enter Patient ID: ");
@@ -142,7 +142,7 @@ public class VariousQueriesAndScanner {
 		System.out.println("Enter Patient Date of Birth: ");
 		String dateOfBirth = getInput.nextLine();
 		getInput.close();
-		
+
 		try {
 			String query = "INSERT INTO Patients VALUES (?, ?, ?)";
 			PreparedStatement stm = Database.connection.prepareStatement(query);
@@ -173,5 +173,4 @@ public class VariousQueriesAndScanner {
 			System.out.println(e);
 		}
 	}
-	
 }
